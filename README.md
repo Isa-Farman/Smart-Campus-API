@@ -8,6 +8,19 @@ The API follows REST architectural principles including stateless communication,
 
 ---
 
+## Technology Stack
+
+| Technology                     | Purpose                                      |
+|------------------------------|----------------------------------------------|
+| Java 8                        | Core programming language                    |
+| JAX-RS (Jersey 2.41)         | RESTful API framework                        |
+| Apache Tomcat 9              | Servlet container and web server             |
+| Maven                        | Build and dependency management              |
+| Jackson                      | JSON serialization and deserialization       |
+| ConcurrentHashMap            | Thread-safe in-memory data storage           |
+---
+
+
 ## Project Structure
 
 ```
@@ -123,5 +136,24 @@ curl -X DELETE http://localhost:8080/api/v1/rooms/LIB-301
 ```
 
 ---
+
+---
+
+## Available Endpoints
+
+**Base URL:** `http://localhost:8080/campus_api/api/v1`
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/api/v1` | API discovery and metadata |
+| `GET` | `/api/v1/rooms` | Get all rooms |
+| `POST` | `/api/v1/rooms` | Create a new room |
+| `GET` | `/api/v1/rooms/{roomId}` | Get a specific room by ID |
+| `DELETE` | `/api/v1/rooms/{roomId}` | Delete a room (only if no sensors) |
+| `GET` | `/api/v1/sensors` | Get all sensors (supports `?type=` filter) |
+| `POST` | `/api/v1/sensors` | Register a new sensor |
+| `GET` | `/api/v1/sensors/{sensorId}` | Get a specific sensor by ID |
+| `GET` | `/api/v1/sensors/{sensorId}/readings` | Get all readings for a sensor |
+| `POST` | `/api/v1/sensors/{sensorId}/readings` | Add a new reading for a sensor |
 
 ---
